@@ -193,5 +193,5 @@ def uploaded():
             f.save(os.path.join(app.config['Uloaded_File'],secure_filename(f.filename)))
             return f"Uploaded by this path {app.config['Uloaded_File']} succesefuly..."
 
-if __name__=='__main__':
-    app.run(debug=True)
+# if __name__=='__main__':
+#     app.run(debug=True)
