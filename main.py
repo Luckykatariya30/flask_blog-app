@@ -138,9 +138,6 @@ def dashboard():
         return render_template('login.html')
     
     
-    
-    
-    
 @app.route("/edit/<string:sno>" , methods=['GET','POST'])
 def edit(sno):
     if ('user' in session and session['user'] == params['user_name']):
@@ -169,9 +166,6 @@ def edit(sno):
         post = Post.query.filter_by(sno=sno).first()
         return render_template('edit.html',post= post)
     
-    
-    
-    
 
 @app.route("/delete/<string:sno>")
 def delete(sno):
@@ -181,10 +175,6 @@ def delete(sno):
         db.session.commit()
         return redirect('/dashboard')
     
-    
-    
-    
-    
 @app.route("/uploaded" , methods=['GET','POST'])
 def uploaded():
     if ('user' in session and session['user'] == params['user_name']):
@@ -193,5 +183,5 @@ def uploaded():
             f.save(os.path.join(app.config['Uloaded_File'],secure_filename(f.filename)))
             return f"Uploaded by this path {app.config['Uloaded_File']} succesefuly..."
 
-# if __name__=='__main__':
-#     app.run(debug=True)
+if __name__=='__main__':
+    app.run(debug=True)
